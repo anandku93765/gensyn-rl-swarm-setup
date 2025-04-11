@@ -102,7 +102,7 @@ cd ..
 ---
 
 ## 🔹 9. Handle Web Login (Using `cloudflared`)
-
+## Open new putty / ubantu window then ..
 ### 📶 Enable Port 3000 Access
 ```bash
 sudo apt install ufw -y
