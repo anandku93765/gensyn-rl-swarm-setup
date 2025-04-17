@@ -144,6 +144,51 @@ screen -r gensyn
 
 ---
 
+
+```bash
+nano run_rl_swarm.sh
+```
+✅ Replace this:
+```bash
+open http://localhost:3000
+```
+🔁 With this:
+```bash
+echo "Please open the following URL in your browser to continue login:"
+echo "http://localhost:3000"
+```
+3. Open the file properly:
+
+```bash
+nano hivemind_exp/gsm8k/stage2_rewards.py
+```
+🔁 Replace the broken function:
+Find this:
+
+```bash
+def extract_xml_ids(text: str) -> str:
+    ids = []
+    ids_raw = text.split("<student>")[1:]
+    for id in ids_raw:
+        ids += [id.split("</student>")[0].strip()]
+    return ids
+```
+
+Replace it with this:
+
+```bash
+def extract_xml_ids(text):
+    if not isinstance(text, str):
+        return []  # Prevent NoneType error
+    ids = []
+    ids_raw = text.split("<student>")[1:]
+    for id in ids_raw:
+        ids += [id.split("</student>")[0].strip()]
+    return ids
+
+```
+
+
 ## ✅ Your Gensyn RL-Swarm Node is Now Running! 🚀
 
 Happy Swarming 💥
